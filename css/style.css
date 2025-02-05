@@ -1,0 +1,82 @@
+p {
+	font-size: 10px
+}
+
+.modal-contenido{
+  background-color:aqua;
+  width:300px;
+  padding: 10px 20px;
+  margin: 20% auto;
+  position: relative;
+}
+
+.Modal{
+  background-color: rgba(0,0,0,.8);
+  position:fixed;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  opacity:0;
+  pointer-events:none;
+  transition: all 1s;
+}
+
+#miModal:target{
+  opacity:1;
+  pointer-events:auto;
+}
+
+thead {
+	background-color: #338DFF;
+}
+
+.navbar {
+	background-color: #3C3E40;
+	font-size: 30px;
+    font-weight: bold;
+    color: green;
+}
+
+.campos {
+	color: #ffffff;	
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+}
+
+td {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+
+a {
+	text-decoration: none;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+
+.btn-group-vertical {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #ffffff;
+	background-color: #3C3E40;
+}
+
+.btn-default {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #ffffff;
+	background-color: #3C3E40;
+}
+
+H3 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	color: #ffffff;
+}
+
+label {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+}

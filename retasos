@@ -1,0 +1,52 @@
+<table class="table table-bordered table-striped table-condensed table-hover">
+                      <thead class="text-left">
+                        <tr>
+                          <th>Nombre</th>
+                          <th>Rut</th>
+                          <th>Ex. Bateria Basica</th>
+                          <th>Alt. Física</th>
+                          <th>Alt.Geograf</th>
+                          <th>Cero Daño</th>
+                          <th>IIIV par</th>
+                          <th>Psicosensometrico (R)</th>
+                          <th>Opciones</th>
+                        </tr>
+                      </thead>
+                     <tbody >
+                            <?php
+                                require_once "../Controllers/C_listProduct.php";
+                                foreach ($item as $producto)
+                                {
+                                    echo "<tr>";
+                                    //marca
+                                    echo "<td><font size=2>$producto[modelo]</td>";
+                                    //modelo
+                                    echo "<td><font size=2>$producto[marca]</td>";
+                                    //serie
+                                    echo "<td><font size=2>$producto[serie]</td>";
+                                    //tipo
+                                    echo "<td><font size=2>$producto[tipo]</td>";
+                                    //servicio
+                                  ///echo "<td><font size=2>$producto[servicio]</td>";
+                                    //estado
+                                    echo "<td><font size=2>$producto[estado]</td>";
+                                    //bodega
+                                    echo "<td><font size=2>$producto[bodega]</td>";
+                                    //ubicacion
+                                    echo "<td><font size=2>$producto[ubicacion]</td>";
+                                    //Operativo
+                                    echo "<td><font size=2>$producto[operativo]</td>";
+                                    //documento de entrada 
+                                    echo "<td><font size=2>$producto[docu_in]</td>";
+                                    //documento de salida 
+                                    echo "<td><font size=2>$producto[docu_out]</td>";
+                                    //Opciones
+                                    $estado=$producto[estado];
+                                    if($estado=="En_Stock" && $estado="EnFalla" && $estado="Debaja") { $href='href';}
+                                    echo "<td> <a $href=lower.php?serie=$producto[serie] role='button' ><span class='glyphicon glyphicon-minus-sign' title='Modificar Inventario' ></span></a>
+                                          <a href=view.php?serie=$producto[serie] role='button'><span class='glyphicon glyphicon-eye-open' title='Ver detalles del Item'></span></a></td>";
+                                    echo  "</tr>";
+                                }
+                              ?>                                         
+                      </tbody>
+                    </table>
