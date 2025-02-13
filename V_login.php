@@ -30,12 +30,13 @@
 			        	<div class="row text-center">
 						  <div class="col-md-6 col-md-offset-3">
 						  		<form class="role" action="./C_loginUser.php" method="POST">
-
+<!-- MENSAJE EMERGENTE ERROR PASS -->
 										<?php
 											if(isset($_GET["error"])) {
 																		echo '<div class="alert alert-danger"> usuario o contraseña incorrectos!</div>';
 																		}
 										?>
+<!-- FIN MENSAJE EMERGENTE ERROR PASS -->
 					                      <div class="form-group form-group-lg form-group-center">
 						                      <label for="username">Nombre de usuario</label>
 						                      <input  class="form-control" name="username" id="username" type="text" required ></input>
