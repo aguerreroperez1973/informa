@@ -3,8 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Informa Incotel</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
   </head>
   <body>
     <div>
@@ -21,84 +22,67 @@
         <!-- galeria de card -->
          <div class="container">
           <div class="row">
+            <!-- INI tarjeta empleado -->
+                          <div class="card m-2 flex" style="width: 11rem;">
+                              <div class="card-body p-2">
+                                <h6 class="card-title">Alberto Guerrero</h6>
+                              </div>
+                               <!-- INI SUB-tarjeta -->
+                                  <div class="card mb-1 p-0 " style="width: 9.5rem;">
+                                    <div class="card-body" style="font-size: 11px">
+                                      <p class="card-title" ><strong> <a href="#" class="card-link">Bateria Básica:</strong></a></p>
+                                      <p class="card-text" style="font-size: 10px">Emision: 03-11-2020 <br> Vence: 10-10-2024</p>
+                                  </div>
+                              </div> <!-- FIN SUB-tarjeta -->
+                              <!-- INI SUB-tarjeta -->
+                              <div class="card mb-1" style="width: 9.5rem;">
+                                    <div class="card-body" style="font-size: 11px">
+                                      <p class="card-title" ><strong><a href="#" class="card-link">Ex.Altura Física:</strong></a></p>
+                                      <p class="card-text" style="font-size: 10px">Emision: 03-11-2020 <br> Vence: 10-10-2024</p>
+                                  </div>
+                              </div> <!-- FIN SUB-tarjeta -->
+                              <!-- INI SUB-tarjeta -->
+                              <div class="card mb-1" style="width: 9.5rem;">
+                                    <div class="card-body" style="font-size: 11px">
+                                      <p class="card-title" ><strong><a href="#" class="card-link">Ex.Altura Geografica:</strong></a></p>
+                                      <p class="card-text" style="font-size: 10px">Emision: 03-11-2020 <br> Vence: 10-10-2024</p>
+                                  </div>
+                              </div> <!-- FIN SUB-tarjeta -->
+                              <!-- INI SUB-tarjeta -->
+                              <div class="card mb-1" style="width: 9.5rem;">
+                                    <div class="card-body" style="font-size: 11px">
+                                      <p class="card-title" ><strong><a href="#" class="card-link">Curso Cero Daño:</strong></a></p>
+                                      <p class="card-text" style="font-size: 10px">Emision: 03-11-2020 <br> Vence: 10-10-2024</p>
+                                      
+                                  </div>
+                              </div> <!-- FIN SUB-tarjeta -->
+                              <!-- INI SUB-tarjeta -->
+                              <div class="card mb-1" style="width: 9.5rem;">
+                                    <div class="card-body" style="font-size: 11px">
+                                      <p class="card-title" ><strong><a href="#" class="card-link">VIII PAR:</strong></a></p>
+                                      <p class="card-text" style="font-size: 10px">Emision: 03-11-2020 <br> Vence: 10-10-2024</p>
+                                  </div>
+                              </div> <!-- FIN SUB-tarjeta -->
+                              <!-- INI SUB-tarjeta -->
+                              <div class="card mb-1" style="width: 9.5rem;">
+                                    <div class="card-body" style="font-size: 11px">
+                                      <p class="card-title" ><strong><a href="#" class="card-link">Psicosensometrico:</strong></a></p>
+                                      <p class="card-text" style="font-size: 10px">Emision: 03-11-2020 <br> Vence: 10-10-2024</p>
+                                  </div>
+                              </div> 
+                          </div><!-- FIN SUB-tarjeta -->
             <!-- INI tarjetas empleados -->
-                          <div class="card m-2 flex" style="width: 14rem;">
-                              <div class="card-body">
-                              <h6 class="card-title">Alberto Guerrero</h6>
-                            </div>
-                            <ul class="list-group list-group-flush" style="font-size: 11px">
-                              <li class="list-group-item"> <strong>Bateria Basica:</strong><p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
-                              <li class="list-group-item"> <strong>Ex.Altura Física:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
-                              <li class="list-group-item"> <strong>Ex.Altura Geografica:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
-                              <li class="list-group-item"> <strong>Curso Cero Daño:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
-                              <li class="list-group-item"> <strong>VIII PAR:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
-                              <li class="list-group-item"> <strong>Psicosensometrico:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
-                            </ul>
-                            <div class="card-body">
-                              <a href="#" class="card-link">Card link</a>
-                              <a href="#" class="card-link">Another link</a>
-                            </div>
-                          </div>
+
+            <div>
+            <?php
+                require_once "./C_ExamenesUsuarios.php";
+                   foreach ($item as $examen)
+                    { echo "$examen[nombre_exa]"; } ?>        
+            </div>
             <!-- FIN tarjetas empleados --> 
 
-             <!-- INI tarjetas empleados -->
-             <div class="card m-2 flex" style="width: 14rem;">
-                              <div class="card-body">
-                              <h6 class="card-title">Alberto Guerrero</h6>
-                            </div>
-                            <ul class="list-group list-group-flush" style="font-size: 11px">
-                              <li class="list-group-item"> <strong>Bateria Basica:</strong><p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
-                              <li class="list-group-item"> <strong>Ex.Altura Física:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
-                              <li class="list-group-item"> <strong>Ex.Altura Geografica:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
-                              <li class="list-group-item"> <strong>Curso Cero Daño:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
-                              <li class="list-group-item"> <strong>VIII PAR:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
-                              <li class="list-group-item"> <strong>Psicosensometrico:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
-                            </ul>
-                            <div class="card-body">
-                              <a href="#" class="card-link">Card link</a>
-                              <a href="#" class="card-link">Another link</a>
-                            </div>
-                          </div>
-            <!-- FIN tarjetas empleados --> 
-
-             <!-- INI tarjetas empleados -->
-             <div class="card m-2 flex" style="width: 14rem;">
-                              <div class="card-body">
-                              <h6 class="card-title">Alberto Guerrero</h6>
-                            </div>
-                            <ul class="list-group list-group-flush" style="font-size: 11px">
-                              <li class="list-group-item"> <strong>Bateria Basica:</strong><p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
-                              <li class="list-group-item"> <strong>Ex.Altura Física:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
-                              <li class="list-group-item"> <strong>Ex.Altura Geografica:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
-                              <li class="list-group-item"> <strong>Curso Cero Daño:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
-                              <li class="list-group-item"> <strong>VIII PAR:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
-                              <li class="list-group-item"> <strong>Psicosensometrico:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
-                            </ul>
-                            <div class="card-body">
-                              <a href="#" class="card-link">Card link</a>
-                              <a href="#" class="card-link">Another link</a>
-                            </div>
-                          </div>
-            <!-- FIN tarjetas empleados --> 
-
-             <!-- INI tarjetas empleados -->
-             <div class="card m-2 flex" style="width: 14rem;">
-                              <div class="card-body">
-                              <h6 class="card-title">Alberto Guerrero</h6>
-                            </div>
-                            <ul class="list-group list-group-flush" style="font-size: 11px">
-                              <li class="list-group-item"> <strong>Bateria Basica:</strong><p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
-                              <li class="list-group-item"> <strong>Ex.Altura Física:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
-                              <li class="list-group-item"> <strong>Ex.Altura Geografica:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
-                              <li class="list-group-item"> <strong>Curso Cero Daño:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
-                              <li class="list-group-item"> <strong>VIII PAR:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
-                              <li class="list-group-item"> <strong>Psicosensometrico:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
-                            </ul>
-                            <div class="card-body">
-                              <a href="#" class="card-link">Card link</a>
-                              <a href="#" class="card-link">Another link</a>
-                            </div>
-                          </div>
+            <!-- INI tarjetas empleados -->
+             
             <!-- FIN tarjetas empleados --> 
           <div>
         </div>

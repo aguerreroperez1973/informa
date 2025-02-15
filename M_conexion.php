@@ -10,7 +10,7 @@
 								//if ($this->con->connect_error) { die("Connection failed: " . $conn->connect_error);
 						}
 
-			///////////////////usuarios
+			///////////////////LOGIN USUARIOS ////////////////////////////////////////////////////
 						
 						public function loginUser($username, $password){
 
@@ -20,6 +20,22 @@
 								if ($numRows == 1){ return true; } 
 									return false;		
 						}//fin loginUSer
+			
+			///////////////////LISTAR TODOS LOS USUARIOS CON SUS EXAMENES ////////////////////////////////////////////////////
+						public function getExamenesUsuarios(){
+
+							$return = [];
+							$i = 0;
+			
+							$query = $this->con->query('SELECT * FROM examen');
+			
+							while ($row = $query->fetch_assoc()){
+								$return[$i] = $row;
+								$i++;
+							}
+			
+							return $return;
+						} // fin getExamenesUsuarios
 
 					} //fin classConexion	
 
