@@ -21,6 +21,22 @@
 									return false;		
 						}//fin loginUSer
 			
+			///////////////////OBTENER LOS USUARIOS PARA LISTAR EXAMENES ////////////////////////////////////////////////////
+			public function getUsuarios(){
+
+				$return = [];
+				$i = 0;
+
+				$query = $this->con->query('SELECT * FROM usuario');
+
+				while ($row = $query->fetch_assoc()){
+					$return[$i] = $row;
+					$i++;
+				}
+
+				return $return;
+			} // fin getExamenesUsuarios
+
 			///////////////////LISTAR TODOS LOS USUARIOS CON SUS EXAMENES ////////////////////////////////////////////////////
 						public function getExamenesUsuarios(){
 
