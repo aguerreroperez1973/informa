@@ -119,7 +119,7 @@
 
                           <div class="card m-2 flex" style="width: 14rem;">
                               <div class="card-body">
-                              <h6 class="card-title">Alberto Guerrero</h6>
+                              <h6 class="card-title">Ulises Reyes</h6>
                             </div>
                             <ul class="list-group list-group-flush" style="font-size: 11px">
                               <li class="list-group-item"> <strong>Bateria Basica:</strong><p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
@@ -136,7 +136,7 @@
                           </div>
                           <div class="card m-2 flex" style="width: 14rem;">
                               <div class="card-body">
-                              <h6 class="card-title">Alberto Guerrero</h6>
+                              <h6 class="card-title">David Alarcon</h6>
                             </div>
                             <ul class="list-group list-group-flush" style="font-size: 11px">
                               <li class="list-group-item"> <strong>Bateria Basica:</strong><p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
@@ -154,7 +154,7 @@
 
                           <div class="card m-2 flex" style="width: 14rem;">
                               <div class="card-body">
-                              <h6 class="card-title">Alberto Guerrero</h6>
+                              <h6 class="card-title">Alex Pavéz</h6>
                             </div>
                             <ul class="list-group list-group-flush" style="font-size: 11px">
                               <li class="list-group-item"> <strong>Bateria Basica:</strong><p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>

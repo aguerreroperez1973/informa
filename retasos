@@ -50,3 +50,71 @@
                               ?>                                         
                       </tbody>
                     </table>
+
+
+
+
+
+                    
+            <!-- INI tarjeta empleado 
+                          <div class="card m-2 flex" style="width: 11rem;">
+                              <div class="card-body p-2">
+                                <h6 class="card-title">Alberto Guerrero</h6>
+                              </div>
+                               <!-- INI SUB-tarjeta -->
+                                  <div class="card mb-1 p-0 " style="width: 9.5rem;">
+                                    <div class="card-body" style="font-size: 11px">
+                                      <p class="card-title" ><strong> <a href="#" class="card-link">Bateria Básica:</strong></a></p>
+                                      <p class="card-text" style="font-size: 10px">Emision: 03-11-2020 <br> Vence: 10-10-2024</p>
+                                  </div>
+                              </div> <!-- FIN SUB-tarjeta -->
+                              <!-- INI SUB-tarjeta -->
+                              <div class="card mb-1" style="width: 9.5rem;">
+                                    <div class="card-body" style="font-size: 11px">
+                                      <p class="card-title" ><strong><a href="#" class="card-link">Ex.Altura Física:</strong></a></p>
+                                      <p class="card-text" style="font-size: 10px">Emision: 03-11-2020 <br> Vence: 10-10-2024</p>
+                                  </div>
+                              </div> <!-- FIN SUB-tarjeta -->
+                              <!-- INI SUB-tarjeta -->
+                              <div class="card mb-1" style="width: 9.5rem;">
+                                    <div class="card-body" style="font-size: 11px">
+                                      <p class="card-title" ><strong><a href="#" class="card-link">Ex.Altura Geografica:</strong></a></p>
+                                      <p class="card-text" style="font-size: 10px">Emision: 03-11-2020 <br> Vence: 10-10-2024</p>
+                                  </div>
+                              </div> <!-- FIN SUB-tarjeta -->
+                              <!-- INI SUB-tarjeta -->
+                              <div class="card mb-1" style="width: 9.5rem;">
+                                    <div class="card-body" style="font-size: 11px">
+                                      <p class="card-title" ><strong><a href="#" class="card-link">Curso Cero Daño:</strong></a></p>
+                                      <p class="card-text" style="font-size: 10px">Emision: 03-11-2020 <br> Vence: 10-10-2024</p>
+                                      
+                                  </div>
+                              </div> <!-- FIN SUB-tarjeta -->
+                              <!-- INI SUB-tarjeta -->
+                              <div class="card mb-1" style="width: 9.5rem;">
+                                    <div class="card-body" style="font-size: 11px">
+                                      <p class="card-title" ><strong><a href="#" class="card-link">VIII PAR:</strong></a></p>
+                                      <p class="card-text" style="font-size: 10px">Emision: 03-11-2020 <br> Vence: 10-10-2024</p>
+                                  </div>
+                              </div> <!-- FIN SUB-tarjeta -->
+                              <!-- INI SUB-tarjeta -->
+                              <div class="card mb-1" style="width: 9.5rem;">
+                                    <div class="card-body" style="font-size: 11px">
+                                      <p class="card-title" ><strong><a href="#" class="card-link">Psicosensometrico:</strong></a></p>
+                                      <p class="card-text" style="font-size: 10px">Emision: 03-11-2020 <br> Vence: 10-10-2024</p>
+                                    </div>
+                                </div> 
+                          </div><!-- FIN SUB-tarjeta -->
+            <!-- INI tarjetas empleados -->
+
+
+            $examen[nombre_exa]
+
+
+                                    <?php
+                                        require_once "./C_ExamenesUsuarios.php";
+                                          foreach ($item as $examen)
+                                            { echo " 
+                                              <p class='card-title' ><strong> <a href='#' class='card-link'> <div>$examen[nombre_exa] </strong></a></p>
+                                              <p class='card-text' style='font-size: 10px'>Emision: 03-11-2020 <br> Vence: 10-10-2024</p>  "; } 
+                                      ?> 
