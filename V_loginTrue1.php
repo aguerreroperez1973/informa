@@ -91,26 +91,85 @@
                     <div class="row">
                       <div class="col-xs-13 ">
                         <h4>&nbspListado Empleados y Examenes Médicos <?php echo"$marca";?> :</h4> 
+                          <!--<ul class="nav nav-tabs">
+                              <li role="presentation" class="<?php echo "$uno"; ?>"><a href="list.php?marca=<?php echo"$marca";?>">TODOS</a></li>
+                              <li role="presentation" class="<?php echo "$dos"; ?>"><a href="list.php?marca=<?php echo"$marca";?>&estado=En_stock">EN STOCK</a></li>
+                              <li role="presentation" class="<?php echo "$tres"; ?>"><a href="list.php?marca=<?php echo"$marca";?>&estado=otros">OTROS</a></li>
+                          </ul>-->
                       </div>
 
-                      <div class="card m-2 flex" style="width: 14rem;">
+                        <!-- INI tarjetas empleados -->
+                          <div class="card m-2 flex" style="width: 14rem;">
                               <div class="card-body">
                               <h6 class="card-title">Alberto Guerrero</h6>
                             </div>
-                                            <?php
-                                              require_once "./C_ExamenesUsuarios.php";
-                                                foreach ($item as $examen)
-                                                  { echo " 
-                                                      <div>
-                                                      <ul class='list-group list-group-flush' style='font-size: 11px'>
-                                                        <li class='list-group-item'> <strong>$examen[nombre_exa]</strong><p>Emisión: $examen[fecha_emision] <br>Vencimiento: $examen[fecha_vencimi]</p></li>
-                                                        </ul>
-                                                      </div>
-                                                        "; } ?>
-                                                <div class="card-body">
-                                                  <a href="#" class="card-link">Card link</a>
-                                                  <a href="#" class="card-link">Another link</a>
-                                                </div>
+                            <ul class="list-group list-group-flush" style="font-size: 11px">
+                              <li class="list-group-item"> <strong>Bateria Basica:</strong><p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
+                              <li class="list-group-item"> <strong>Ex.Altura Física:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
+                              <li class="list-group-item"> <strong>Ex.Altura Geografica:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
+                              <li class="list-group-item"> <strong>Curso Cero Daño:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
+                              <li class="list-group-item"> <strong>VIII PAR:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
+                              <li class="list-group-item"> <strong>Psicosensometrico:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
+                            </ul>
+                            <div class="card-body">
+                              <a href="#" class="card-link">Card link</a>
+                              <a href="#" class="card-link">Another link</a>
+                            </div>
+                          </div>
+
+                          <div class="card m-2 flex" style="width: 14rem;">
+                              <div class="card-body">
+                              <h6 class="card-title">Ulises Reyes</h6>
+                            </div>
+                            <ul class="list-group list-group-flush" style="font-size: 11px">
+                              <li class="list-group-item"> <strong>Bateria Basica:</strong><p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
+                              <li class="list-group-item"> <strong>Ex.Altura Física:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
+                              <li class="list-group-item"> <strong>Ex.Altura Geografica:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
+                              <li class="list-group-item"> <strong>Curso Cero Daño:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
+                              <li class="list-group-item"> <strong>VIII PAR:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
+                              <li class="list-group-item"> <strong>Psicosensometrico:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
+                            </ul>
+                            <div class="card-body">
+                              <a href="#" class="card-link">Card link</a>
+                              <a href="#" class="card-link">Another link</a>
+                            </div>
+                          </div>
+                          <div class="card m-2 flex" style="width: 14rem;">
+                              <div class="card-body">
+                              <h6 class="card-title">David Alarcon</h6>
+                            </div>
+                            <ul class="list-group list-group-flush" style="font-size: 11px">
+                              <li class="list-group-item"> <strong>Bateria Basica:</strong><p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
+                              <li class="list-group-item"> <strong>Ex.Altura Física:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
+                              <li class="list-group-item"> <strong>Ex.Altura Geografica:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
+                              <li class="list-group-item"> <strong>Curso Cero Daño:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
+                              <li class="list-group-item"> <strong>VIII PAR:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
+                              <li class="list-group-item"> <strong>Psicosensometrico:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
+                            </ul>
+                            <div class="card-body">
+                              <a href="#" class="card-link">Card link</a>
+                              <a href="#" class="card-link">Another link</a>
+                            </div>
+                          </div>
+
+                          <div class="card m-2 flex" style="width: 14rem;">
+                              <div class="card-body">
+                              <h6 class="card-title">Alex Pavéz</h6>
+                            </div>
+                            <ul class="list-group list-group-flush" style="font-size: 11px">
+                              <li class="list-group-item"> <strong>Bateria Basica:</strong><p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
+                              <li class="list-group-item"> <strong>Ex.Altura Física:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
+                              <li class="list-group-item"> <strong>Ex.Altura Geografica:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
+                              <li class="list-group-item"> <strong>Curso Cero Daño:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
+                              <li class="list-group-item"> <strong>VIII PAR:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
+                              <li class="list-group-item"> <strong>Psicosensometrico:</strong> <p>Emision: 03-11-2020 <br> Vence: 10-10-2024</p></li>
+                            </ul>
+                            <div class="card-body">
+                              <a href="#" class="card-link">Card link</a>
+                              <a href="#" class="card-link">Another link</a>
+                            </div>
+                          </div>
+                        <!-- FIN tarjetas empleados -->
                     </div>
     </div>
 

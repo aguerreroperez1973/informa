@@ -27,6 +27,7 @@
 				$return = [];
 				$i = 0;
 
+				//$query = $this->con->query('SELECT nombre, apellido, usuario_id FROM usuario');
 				$query = $this->con->query('SELECT * FROM usuario');
 
 				while ($row = $query->fetch_assoc()){
@@ -43,13 +44,16 @@
 							$return = [];
 							$i = 0;
 			
-							$query = $this->con->query('SELECT * FROM examen');
-			
+							$query = $this->con->query('SELECT nombre_exa, fecha_emision, fecha_vencimi, usuario_id, vigente FROM examen');
+							/*$query = $this->con->query('SELECT usuario.nombre, usuario.apellido, 
+														usuario.usuario_id as userid, examen.usuario_id as userexaid, 
+														examen.nombre_exa, examen.fecha_emision, examen.fecha_vencimi 
+														FROM examen
+														inner JOIN usuario ON usuario.usuario_id = examen.usuario_id');*/
 							while ($row = $query->fetch_assoc()){
 								$return[$i] = $row;
 								$i++;
 							}
-			
 							return $return;
 						} // fin getExamenesUsuarios
 

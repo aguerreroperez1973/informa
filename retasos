@@ -134,8 +134,30 @@
                                                      </div>
                                                    </div>
                                                    "};?>
+
                                <!-- FIN SUB-tarjeta -->
 
 
                                SELECT usuario.nombre, examen.nombre_exa, examen.fecha_emision, examen.fecha_vencimi  FROM examen
 inner JOIN usuario ON usuario.usuario_id = examen.usuario_id;
+
+<?php
+    require_once "./C_ExamenesUsuarios.php";
+      foreach ($item as $examen)
+        { echo"
+                                                  
+        "};?>
+
+==============================================================
+consulta a base de datos
+
+SELECT usuario.nombre, 
+usuario.apellido, 
+usuario.usuario_id as userid, 
+examen.usuario_id as userexaid, 
+examen.nombre_exa, 
+examen.fecha_emision, 
+examen.fecha_vencimi
+  FROM examen
+inner JOIN usuario ON usuario.usuario_id = examen.usuario_id;
+==============================================================
