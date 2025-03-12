@@ -11,7 +11,7 @@
     <div>
         <div class="container">
           <div class="row">
-          <!-- NAVBAR a link -->
+<!-- NAVBAR a link -------------------------------------------------------------------------------------------------------------------->
                 <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark" >
                   <div class="container-fluid">
                     <a class="navbar-brand" href="#">INCOTEL</a>
@@ -19,14 +19,16 @@
                 </nav>
             </div>
         </div>
-        <!-- galeria de card -->
+<!-- galeria de TARJETAS -------------------------------------------------------------------------------------------------------------------->
          <div class="container">
             <div class="row">
 
-                <!-- INI tarjeta empleado ========================================================================================================-->
+<!------- INI tarjeta empleado ========================================================================================================-->
                           <?php require_once "./C_GetUsuarios.php"; //OBTENER DATOS DEL USUARIO
                            foreach($user as $usuario)
                            {
+
+                            $name = '';
                             echo "<div class='card m-2 p-0 flex' style='width: 11.1rem;'>";
                             echo "<div class='card-body p-2'>" ;       
                             echo "<h6 class='card-title'>$usuario[nombre] $usuario[apellido]</h6>";
@@ -37,17 +39,17 @@
                                         if($examen['vigente'] == true){ $bgcolor='alert alert-success'; } else { $bgcolor='alert alert-danger'; } //OBTENER vigencia para color de fondo de la tarjeta
                                         echo "<div class='card $bgcolor m-1 pt-0 pb-1' style='width: 9.5rem;  alert-primary'>
                                                 <div class='card-body p-0' >
-                                                  <p class='card-title m-0' ><strong> <a data-bs-toggle='offcanvas' href='#offcanvasExample' data-exa='$examen[nombre_exa]'>$examen[nombre_exa]:</strong></a></p>
+                                                  <p class='card-title m-0' ><strong> <a data-bs-toggle='offcanvas' href='#modal$examen[nombre_exa]-$examen[fecha_emision]-$examen[fecha_vencimi]' >$examen[nombre_exa]:</strong></a></p>
                                                   <p class='card-text' style='font-size: 9px'><strong>Emision:</strong> $examen[fecha_emision] <br> <strong> Vence: </strong> $examen[fecha_vencimi]</p>
                                                 </div>
-                                            </div>
-
-                                          <!------ MODAL PARA ACTUALIZAR FECHAS DEL EXAMEN -->
-                                            <div class='offcanvas offcanvas-end' tabindex='-1' id='offcanvasExample' aria-labelledby='offcanvasRightLabel'>
-                                              <div class='offcanvas-header'>
-                                                <h5>$usuario[nombre] $usuario[apellido]</h5>
-                                                <button type='button' class='btn-close text-reset' data-bs-dismiss='offcanvas' aria-label='Close'></button>
                                               </div>
+                                        
+ <!------- MODAL PARA ACTUALIZAR FECHAS DEL EXAMEN ------------------------------------------------------------------------------------>
+                                            <div class='offcanvas offcanvas-end' tabindex='-1' id='modal$examen[nombre_exa]-$examen[fecha_emision]-$examen[fecha_vencimi]'>
+                                                <div class='offcanvas-header'>
+                                                  <h5> $usuario[nombre] $usuario[apellido] </h5>
+                                                  <button type='button' class='btn-close text-reset' data-bs-dismiss='offcanvas' aria-label='Close'></button>
+                                                </div>  
                                               <div class='offcanvas-body'>
                                                   <form class='role' action='#update' method='POST'>
                                                     <div>
@@ -68,20 +70,17 @@
                                                     </div>
                                                   </form>
                                               </div>
-                                             <!------ FINAL MODAL PARA ACTUALIZAR FECHAS DEL EXAMEN -->
+
+  <!------- FINAL MODAL PARA ACTUALIZAR FECHAS DEL EXAMEN --------------------------------------------------------------------------------->
                                             </div>
                                             ";
                                       }
                                   }        
                             echo "</div>"  ;      
-                            echo "</div> ";
-
-                                 
-
+                            echo "</div> "; 
                            }
                            ?>      
-                  <!-- FIN tarjetas empleados =========================================================================================================-->
-                
+  <!------- FIN tarjetas empleados =========================================================================================================-->
             </div>
           </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
