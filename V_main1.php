@@ -27,8 +27,6 @@
                           <?php require_once "./C_GetUsuarios.php"; //OBTENER DATOS DEL USUARIO
                            foreach($user as $usuario)
                            {
-
-                            $name = '';
                             echo "<div class='card m-2 p-0 flex' style='width: 11.1rem;'>";
                             echo "<div class='card-body p-2'>" ;       
                             echo "<h6 class='card-title'>$usuario[nombre] $usuario[apellido]</h6>";
@@ -39,21 +37,22 @@
                                         if($examen['vigente'] == true){ $bgcolor='alert alert-success'; } else { $bgcolor='alert alert-danger'; } //OBTENER vigencia para color de fondo de la tarjeta
                                         echo "<div class='card $bgcolor m-1 pt-0 pb-1' style='width: 9.5rem;  alert-primary'>
                                                 <div class='card-body p-0' >
-                                                  <p class='card-title m-0' ><strong> <a data-bs-toggle='offcanvas' href='#modal$examen[nombre_exa]-$examen[fecha_emision]-$examen[fecha_vencimi]' >$examen[nombre_exa]:</strong></a></p>
+                                                  <p class='card-title m-0' ><strong> <a data-bs-toggle='offcanvas' href='#modal-$examen[exa_id]-$examen[nombre_exa]-$examen[fecha_emision]-$examen[fecha_vencimi]' >$examen[nombre_exa]:</strong></a></p>
                                                   <p class='card-text' style='font-size: 9px'><strong>Emision:</strong> $examen[fecha_emision] <br> <strong> Vence: </strong> $examen[fecha_vencimi]</p>
                                                 </div>
                                               </div>
                                         
  <!------- MODAL PARA ACTUALIZAR FECHAS DEL EXAMEN ------------------------------------------------------------------------------------>
-                                            <div class='offcanvas offcanvas-end' tabindex='-1' id='modal$examen[nombre_exa]-$examen[fecha_emision]-$examen[fecha_vencimi]'>
+                                            <div class='offcanvas offcanvas-end' tabindex='-1' id='modal-$examen[exa_id]-$examen[nombre_exa]-$examen[fecha_emision]-$examen[fecha_vencimi]'>
                                                 <div class='offcanvas-header'>
                                                   <h5> $usuario[nombre] $usuario[apellido] </h5>
                                                   <button type='button' class='btn-close text-reset' data-bs-dismiss='offcanvas' aria-label='Close'></button>
                                                 </div>  
                                               <div class='offcanvas-body'>
-                                                  <form class='role' action='#update' method='POST'>
+                                                  <form class='role' method='POST'>
                                                     <div>
-                                                    <div> <h6> $examen[nombre_exa] </h6> </div>
+                                                    <div> <h6> $examen[nombre_exa] $examen[exa_id]</h6> </div>
+                                                      <input id='prodId' name='exa_id' type='hidden' value='$examen[exa_id]' />
                                                         <div class='form-group'>
                                                           <label for='fecha_in' class='control-label col-xs-3'>Fecha Emisión</label>
                                                           <input name='fecha_emision' id='fecha_emision' type='date'  class='form-control' name='trip-start' value='$examen[fecha_emision]' min='2020-01-01' max='2030-12-31'></input>
@@ -78,6 +77,30 @@
                                   }        
                             echo "</div>"  ;      
                             echo "</div> "; 
+//////////// actualizar fechas ////////////////////////////
+if(isset($_POST['update'])) {
+  require_once("./C_UpdateFecha.php");
+ //echo " $_GET['message'] ";
+}
+//////////// FIN actualizar fechas ////////////////////////////
+
+//////////// MENSAJES DE RESPUESTA ////////////////////////
+ if(isset($_GET['message'])){
+  if ($exa_id=="") { $disabled="disabled"; } ////desactivar box texto
+   if( $_GET['message'] == "noupdate" ){echo '<div class="modal-body bg-danger">
+                                                          <a class="close" data-dismiss="modal" aria-label="Close" href="start.php"><span aria-hidden="true">&times;</span></a>
+                                                      <h4> <center> <span> Error: Producto no fué actualizado! </span></center> </h4>
+                                                      <center><a class="btn btn-default" data-dismiss="modal" href="start.php">Home</a></center>
+                                              </div>';}
+
+     else { if( $_GET['message'] == "update" ){ echo '<div class="modal-body bg-success">
+                                                          <a class="close" data-dismiss="modal" aria-label="Close" href="start.php"><span aria-hidden="true" href="start.php">&times;</span></a>
+                                                          <h4> <center> <span> El producto fué actualizado con exito </span></center> </h4>
+                                                          <center><a class="btn btn-default" data-dismiss="modal" href="start.php">Home</a></center>
+                                                      </div>';}
+            } //fin else
+                            }  //fin if ini.    
+//////////// FIN MENSAJES DE RESPUESTA ////////////////////////
                            }
                            ?>      
   <!------- FIN tarjetas empleados =========================================================================================================-->

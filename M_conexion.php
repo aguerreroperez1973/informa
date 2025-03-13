@@ -44,7 +44,7 @@
 							$return = [];
 							$i = 0;
 			
-							$query = $this->con->query('SELECT nombre_exa, fecha_emision, fecha_vencimi, usuario_id, vigente FROM examen');
+							$query = $this->con->query('SELECT exa_id, nombre_exa, fecha_emision, fecha_vencimi, usuario_id, vigente FROM examen');
 							/*$query = $this->con->query('SELECT usuario.nombre, usuario.apellido, 
 														usuario.usuario_id as userid, examen.usuario_id as userexaid, 
 														examen.nombre_exa, examen.fecha_emision, examen.fecha_vencimi 
@@ -56,6 +56,18 @@
 							}
 							return $return;
 						} // fin getExamenesUsuarios
+
+
+			/////////////////// ACTUALIZAR FECHAS DE EXAMENES /////////////////////////////////////////////////////////////////////	
+			
+			public function updateFecha($fecha_in, $fecha_out, $exa_id){
+
+					$update = $this->con->query("UPDATE examen SET fecha_emision='$fecha_in', fecha_out='$fecha_out', vigencia=1 WHERE exa_id='$exa_id'") or die($this->con->error.__LINE__);
+						
+						if ($update === TRUE){return true;} 
+						else {return error; }
+									
+			}//fin updateFecha
 
 					} //fin classConexion	
 
