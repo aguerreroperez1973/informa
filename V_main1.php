@@ -77,33 +77,40 @@
                                   }        
                             echo "</div>"  ;      
                             echo "</div> "; 
-//////////// actualizar fechas ////////////////////////////
+//////////// ACTUALIZAR FECHAS POR EXAMEN Y USUARIO ////////////////////////////
 if(isset($_POST['update'])) {
   require_once("./C_UpdateFecha.php");
- //echo " $_GET['message'] ";
+ 
+    if( $message == 'update' ){ echo '
+      <div class="modal" tabindex="-1" role="dialog id="offcanvasBottom"">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+      
+      ';}
+    else { echo 'no ok';}
 }
-//////////// FIN actualizar fechas ////////////////////////////
-
-//////////// MENSAJES DE RESPUESTA ////////////////////////
- if(isset($_GET['message'])){
-  if ($exa_id=="") { $disabled="disabled"; } ////desactivar box texto
-   if( $_GET['message'] == "noupdate" ){echo '<div class="modal-body bg-danger">
-                                                          <a class="close" data-dismiss="modal" aria-label="Close" href="start.php"><span aria-hidden="true">&times;</span></a>
-                                                      <h4> <center> <span> Error: Producto no fué actualizado! </span></center> </h4>
-                                                      <center><a class="btn btn-default" data-dismiss="modal" href="start.php">Home</a></center>
-                                              </div>';}
-
-     else { if( $_GET['message'] == "update" ){ echo '<div class="modal-body bg-success">
-                                                          <a class="close" data-dismiss="modal" aria-label="Close" href="start.php"><span aria-hidden="true" href="start.php">&times;</span></a>
-                                                          <h4> <center> <span> El producto fué actualizado con exito </span></center> </h4>
-                                                          <center><a class="btn btn-default" data-dismiss="modal" href="start.php">Home</a></center>
-                                                      </div>';}
-            } //fin else
-                            }  //fin if ini.    
-//////////// FIN MENSAJES DE RESPUESTA ////////////////////////
+//////////// FIN ACTUALIZAR FECHAS POR EXAMEN Y USUARIO ////////////////////////////
                            }
                            ?>      
   <!------- FIN tarjetas empleados =========================================================================================================-->
+
+
             </div>
           </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

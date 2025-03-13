@@ -4,4 +4,5 @@
 				$item = $con->getExamenesUsuarios();
 		require_once "./V_main1.php";
 		//require_once "./V_loginTrue.php";
+		//$con->close(); 
 ?>

@@ -10,7 +10,7 @@
 								//if ($this->con->connect_error) { die("Connection failed: " . $conn->connect_error);
 						}
 
-			///////////////////LOGIN USUARIOS ////////////////////////////////////////////////////
+						///////////////////LOGIN USUARIOS ////////////////////////////////////////////////////
 						
 						public function loginUser($username, $password){
 
@@ -21,53 +21,49 @@
 									return false;		
 						}//fin loginUSer
 			
-			///////////////////OBTENER LOS USUARIOS PARA LISTAR EXAMENES ////////////////////////////////////////////////////
-			public function getUsuarios(){
-
-				$return = [];
-				$i = 0;
-
-				//$query = $this->con->query('SELECT nombre, apellido, usuario_id FROM usuario');
-				$query = $this->con->query('SELECT * FROM usuario');
-
-				while ($row = $query->fetch_assoc()){
-					$return[$i] = $row;
-					$i++;
-				}
-
-				return $return;
-			} // fin getExamenesUsuarios
-
-			///////////////////LISTAR TODOS LOS USUARIOS CON SUS EXAMENES ////////////////////////////////////////////////////
-						public function getExamenesUsuarios(){
+						///////////////////OBTENER LOS USUARIOS PARA LISTAR EXAMENES ////////////////////////////////////////////////////
+						public function getUsuarios(){
 
 							$return = [];
 							$i = 0;
-			
-							$query = $this->con->query('SELECT exa_id, nombre_exa, fecha_emision, fecha_vencimi, usuario_id, vigente FROM examen');
-							/*$query = $this->con->query('SELECT usuario.nombre, usuario.apellido, 
-														usuario.usuario_id as userid, examen.usuario_id as userexaid, 
-														examen.nombre_exa, examen.fecha_emision, examen.fecha_vencimi 
-														FROM examen
-														inner JOIN usuario ON usuario.usuario_id = examen.usuario_id');*/
+
+							//$query = $this->con->query('SELECT nombre, apellido, usuario_id FROM usuario');
+							$query = $this->con->query('SELECT * FROM usuario');
+
 							while ($row = $query->fetch_assoc()){
 								$return[$i] = $row;
 								$i++;
 							}
+
 							return $return;
 						} // fin getExamenesUsuarios
 
+						///////////////////LISTAR TODOS LOS USUARIOS CON SUS EXAMENES ////////////////////////////////////////////////////
+						public function getExamenesUsuarios(){
 
-			/////////////////// ACTUALIZAR FECHAS DE EXAMENES /////////////////////////////////////////////////////////////////////	
-			
-			public function updateFecha($fecha_in, $fecha_out, $exa_id){
-
-					$update = $this->con->query("UPDATE examen SET fecha_emision='$fecha_in', fecha_out='$fecha_out', vigencia=1 WHERE exa_id='$exa_id'") or die($this->con->error.__LINE__);
+										$return = [];
+										$i = 0;
 						
-						if ($update === TRUE){return true;} 
-						else {return error; }
+										$query = $this->con->query('SELECT exa_id, nombre_exa, fecha_emision, fecha_vencimi, usuario_id, vigente FROM examen');
+										
+										while ($row = $query->fetch_assoc()){
+											$return[$i] = $row;
+											$i++;
+										}
+										return $return;
+						} // fin getExamenesUsuarios
+
+
+						/////////////////// ACTUALIZAR FECHAS DE EXAMENES /////////////////////////////////////////////////////////////////////	
+						
+						public function updateFecha($fecha_in, $fecha_out, $exa_id){
+
+								$update = $this->con->query("UPDATE examen SET fecha_emision='$fecha_in', fecha_vencimi='$fecha_out', vigente=1 WHERE exa_id='$exa_id'") or die($this->con->error.__LINE__);
 									
-			}//fin updateFecha
+									if ($update === TRUE){return true;} 
+									else {return error; }
+												
+						}//fin updateFecha
 
 					} //fin classConexion	
 
