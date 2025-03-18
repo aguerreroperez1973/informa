@@ -8,14 +8,11 @@
 					$con = new Conexion();
                     $item = $con->updateFecha($fecha_in, $fecha_out, $exa_id);
 								if($item=="true"){
-							  						//header("Location: ./V_main1.php?message=update");
-													$message = 'update';  
+							  						$message = 'update';  
 													require_once "./V_main1.php";
-
 												} else{
-														//header("Location: ./V_main1.php?message=noupdate");
 													$message = 'notupdate'; 
 													require_once "./V_main1.php";
 													} 
-					$con = null;			
+					//$con = null;			
 ?>

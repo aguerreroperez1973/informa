@@ -65,6 +65,17 @@
 												
 						}//fin updateFecha
 
+						/////////////////// OBTENER DATOS DE UN EXAMEN ////////////////////////////////////////////////////
+						
+						public function GetExamen($exa_id){
+
+							$result = $this->con->query("SELECT nombre_exa, fecha_emision, fecha_vencimi FROM examen WHERE exa_id = '$exa_id'");
+
+							$numRows = $result->num_rows;
+								if ($numRows == 1){ return true; } 
+									return false;		
+						}//fin GetExamen
+
 					} //fin classConexion	
 
 ?>
