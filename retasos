@@ -179,3 +179,58 @@ inner JOIN usuario ON usuario.usuario_id = examen.usuario_id;
             } //fin else
                             }  //fin if ini.    
 //////////// FIN MENSAJES DE RESPUESTA ////////////////////////
+
+
+
+
+//////////// FORMULARIO USUARIO NUEVO //////////////////////////////////////////////
+
+echo "<form class='role' method='POST'>";
+
+//<! -- mensajes del proceso de ingreso a la DB -->
+ 
+
+        if( $message == 'existe') { echo '<div class='alert alert-danger'> <h4> <center> <span> Error: El Número de Serie ya existe </span></center> </h4></div>'; } 
+
+                  else  {  if( $message == 'noingresado' ){echo '<div class='alert alert-danger'> <h4> <center> <span> Error: producto no ingresado! </span></center> </h4></div>';}
+
+                              else { if( $message == 'ingresado' ){ echo '<div class='alert alert-success'> <h4> <center> <span> El producto fué ingresado al Inventario con Exito </span></center> </h4> </div>'; }
+                                      }
+                          }
+       
+                echo " <div class='form-group'>
+                      <label for='nombre' class='control-label col-xs-1'> Nombre </label>
+                      <input name='nombre' id='nombre' type='text' class='form-control' required></input>
+                    </div>
+                    <div class='form-group' >
+                      <label for='apellido' class='control-label col-xs-1'>Apellido</label>
+                      <input name='apellido' id='apellido' type='text' class='form-control' required></input>
+                    </div>
+
+                    <div class='form-group'>
+                      <label for='rut' class='control-label col-xs-1'> RUT </label>
+                     <input name='rut' id='rut' type='text' class='form-control' required></input>
+                    </div>
+
+                    <div class='form-group'>
+                      <label for='fecha_ingreso' class='control-label col-xs-3'>Fecha Ingreso</label>
+                        <input name='fecha_in' id='fecha_ingreso' type='date'  class='form-control' name='trip-start' value='2024-01-01' min='2024-01-01' max='2030-12-31'></input>
+                    </div>
+                   
+                    <div class='form-group'>
+                      <label for='fecha_egreso' class='control-label col-xs-2'>Fecha Egreso</label>
+                        <input name='fecha_in' id='fecha_egreso' type='date'  class='form-control' name='trip-start' value='2024-11-28' min='2024-01-01' max='2030-12-31'></input>
+                    </div>
+                    <div class='form-group'>
+                      <label for='username' class='control-label col-xs-3' title='Factura/Guia-Despacho' required> Nombre usuario</label>
+                        <input name='username' id='username' type='text' class='form-control' required></input>
+                    </div>
+                    <div class='form-group'>
+                      <label for='password' class='control-label col-xs-3' title='Valor en pesos' required> Password </label>
+                        <input name='valor' id='password' type='text' class='form-control' required></input>
+                    </div>
+                    <div class='form-group'>
+                      <center><button type='submit' name='insert' class='btn btn-default btn-lg btn-block'>Save <span class='glyphicon glyphicon-floppy-disk'></span></button> </center>
+                     </div>";
+
+//////////// FIN FORMULARIO USUARIO NUEVO //////////////////////////////////////////

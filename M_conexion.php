@@ -74,7 +74,17 @@
 							$numRows = $result->num_rows;
 								if ($numRows == 1){ return true; } 
 									return false;		
-						}//fin GetExamen
+						}//fin 
+						
+						/////////////////// INGRESAR NUEVO USUARIO /////////////////////////////////////////////////////////////////////	
+						
+						public function nuevoUsuario($nombre, $apellido, $email, $rut, $fecha_ingreso){
+
+							$insert = $this->con->query("INSERT into usuario (nombre, apellido, rut, activo, fecha_ingreso, admin, email) VALUES ('$nombre', '$apellido','$rut', '1', '$fecha_ingreso', '0', '$email')") or die($this->con->error.__LINE__);
+								if ($insert === TRUE){return true;} 
+								else {return error; }
+											
+					}//fin updateFecha
 
 					} //fin classConexion	
 
