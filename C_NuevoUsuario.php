@@ -1,5 +1,5 @@
 <?php 
-		/*$nombre = $_POST['nombre'];
+		$nombre = $_POST['nombre'];
         $apellido = $_POST['apellido'];
         $email = $_POST['email'];
         $rut = $_POST['rut'];
@@ -8,16 +8,16 @@
        // echo " nombre= $nombre , apellido=$apellido;  fecha= $fecha_ingreso; email= $email; rut= $rut ";
 			require_once "./M_conexion.php";
 					$con = new Conexion();
-                    $newuser = $con->nuevoUsuario($nombre, $apellido, $email, $rut, $fecha_ingreso);*/
+                    $newuser = $con->nuevoUsuario($nombre, $apellido, $email, $rut, $fecha_ingreso);
 
-                    $newuser='true';
 								if($newuser=="true"){
-							  						$message = 'ingresado';  
+							  						$message1 = 'ingresado';  
 													require_once "./V_main1.php";
-                                                    //header("Location: ./V_main1.php?message=ingresado");
+                                                   //header("Location: ./V_main1.php");
+												   header("Location: ./V_main1.php?message1=ingresado");
 												} else{
-													$message = 'noingresado'; 
+													$message1 = 'noingresado'; 
 													require_once "./V_main1.php";
-													}
-					//$con = null;			
+													//header("Location: ./V_main1.php#message");
+													}	
 ?>
