@@ -14,7 +14,7 @@
 							  						$message1 = 'ingresado';  
 													require_once "./V_main1.php";
                                                    //header("Location: ./V_main1.php");
-												   header("Location: ./V_main1.php?message1=ingresado");
+												   //header("Location: ./V_main1.php?message1=ingresado");
 												} else{
 													$message1 = 'noingresado'; 
 													require_once "./V_main1.php";

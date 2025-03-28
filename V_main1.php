@@ -17,7 +17,6 @@
 <!-- NAVBAR a link -------------------------------------------------------------------------------------------------------------------->
                 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                   <div class="container-fluid">
-                    
                     <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarTogglerDemo01">
                       <div><a class="navbar-brand" href="www.incotel.cl">INCOTEL</a></div>
                       <div><a class="navbar-brand" data-bs-toggle="offcanvas" href="#newuser" title="Nuevo empleado"> <svg xmlns="http://www.w3.org/2000/svg"  width="30" height="30" fill="currentColor" class="bi-10x bi-person-add " viewBox="0 0 16 16">
@@ -34,16 +33,17 @@
                 </nav>
           </div>
         </div>
+
 <!-- INICIO GALERIA DE TARJETAS -------------------------------------------------------------------------------------------------------------------->
          <div class="container">
             <div class="row">
             
 <!------- INI OFFCAMVAS/FORMULARIO nuevo empleado =========================================================================================================-->
              <form class="from" action="./C_NuevoUsuario.php" method="POST">
-
 <!-- mensajes del proceso de ingreso del usuario -->
                                               <?php
-                                                    if( $message1 == "noingresado" ){ echo '
+                                                    if( $message1 == "noingresado" ){
+                                                      echo '
                                                     <div class="offcanvas offcanvas-end show" data-bs-backdrop="static" tabindex="-1" id="offcanvas" aria-labelledby="staticBackdropLabel">
                                                         <div class="offcanvas-header">
                                                           <h5 class="offcanvas-title" id="offcanvasLabel">Datos del empleado</h5>
@@ -70,7 +70,9 @@
                                               ?>
 <!-- FIN mensajes del proceso de ingreso del usuario -->
 
-                                    <div class='offcanvas offcanvas-end' data-bs-backdrop='static' tabindex='-1' id='newuser' aria-labelledby='offcanvasLabel'> 
+<!------- CONTINUACION OFFCAMVAS/FORMULARIO NUEVO/MODIFICACION EMPLEADO =========================================================================================================-->
+                                    <div class='offcanvas offcanvas-end' data-bs-backdrop='static' tabindex='-1' id='newuser' aria-labelledby='offcanvasLabel'>
+
                                                 <div class='offcanvas-header'>
                                                 <h5 class="offcanvas-title" id="offcanvasLabel">Datos del empleado</h5>
                                                   <button type='button' class='btn-close text-reset' data-bs-dismiss='offcanvas' aria-label='Close'></button>
@@ -115,8 +117,7 @@
                           if(isset($_POST['update'])) {
                             require_once("./C_UpdateFecha.php");
                               if( $message == 'update' ){ 
-                                echo "
-                                        <div class='offcanvas offcanvas-end show' tabindex='-1' id='modal_ok'>
+                                echo "<div class='offcanvas offcanvas-end show' data-bs-backdrop='static' tabindex='-1' id='modal_ok' aria-labelledby='staticBackdropLabel' >
                                                 <div class='offcanvas-header'>
                                                 <h5> </h5>
                                                   <button type='button' class='btn-close text-reset' data-bs-dismiss='offcanvas' aria-label='Close'></button>
@@ -138,7 +139,7 @@
                                                           </div>
                                                   </div>";
                                 ;}
-                              else { echo "<div class='offcanvas offcanvas-end show' tabindex='-1' id='modal_notok'>
+                              else { echo "<div class='offcanvas offcanvas-end show' data-bs-backdrop='static' tabindex='-1' id='modal_notok' aria-labelledby='staticBackdropLabel'>
                                                 <div class='offcanvas-header'>
                                                 <h5> </h5>
                                                   <button type='button' class='btn-close text-reset' data-bs-dismiss='offcanvas' aria-label='Close'></button>
@@ -156,7 +157,7 @@
                                                                 <label for='fecha_in' class='control-label col-xs-3'>Fecha Vencimiento</label>
                                                                 <input name='fecha_vencimi' id='fecha_emision' type='date'  class='form-control' 
                                                                            name='trip-start' value='0000-00-00' min='2020-01-01' max='2030-12-31' disabled></input>
-                                                                      </div>
+                                                            </div>
                                                           </div>
                                                   </div>"; }  }
 //////////// FIN ACTUALIZAR FECHAS POR EXAMEN Y USUARIO ////////////////////////////
@@ -166,10 +167,53 @@
                                                     
                            foreach($user as $usuario)
                            {
+                            $user_id=$usuario['usuario_id'];
+
                             echo "<div class='card m-2 p-0 flex' style='width: 11.1rem;'>";
                             echo "<div class='card-body p-2'>" ;       
-                            echo "<h6 class='card-title'><a style='text-decoration-line: none' data-bs-toggle='offcanvas' href='#newuser-$usuario[usuario_id]'><h5>$usuario[nombre] $usuario[apellido]</h5></a></h6>";
+                            echo "<h6 class='card-title'><a style='text-decoration-line: none' data-bs-toggle='offcanvas' href='#updateuser'><h5>$usuario[nombre] $usuario[apellido]</h5></a></h6>";
                             
+                            echo "
+
+                            <div class='offcanvas offcanvas-end' data-bs-backdrop='static' tabindex='-1' id='updateuser' aria-labelledby='offcanvasLabel' aria-labelledby='staticBackdropLabel'>
+                              <div class='offcanvas-header'>
+                                <h5 class='offcanvas-title' id='offcanvasLabel'>Datos del empleado</h5>
+                                <button type='button' class='btn-close' data-bs-dismiss='offcanvas' aria-label='Close'></button>
+                              </div>
+                              <div class='offcanvas-body'>
+                            
+                                    <form class='role' method='POST'>
+                                      <div class='form-group'>
+                                        <label for='nombre' class='control-label col-xs-1'> Nombre </label>
+                                        <input name='nombre' id='nombre' type='text' class='form-control' value='$usuario[nombre]' required></input>
+                                      </div>
+                                      <div class='form-group' >
+                                        <label for='apellido' class='control-label col-xs-1'>Apellido</label>
+                                        <input name='apellido' id='apellido' type='text' class='form-control' required></input>
+                                      </div>
+                                      <div class='form-group'>
+                                        <label for='rut' class='control-label col-xs-1'> RUT </label>
+                                      <input name='rut' id='rut' type='text' class='form-control' required></input>
+                                      </div>
+                                      <div class='form-group'>
+                                        <label for='fecha_ingreso' class='control-label col-xs-3'>Fecha Ingreso</label>
+                                          <input name='fecha_in' id='fecha_ingreso' type='date'  class='form-control' name='trip-start' value='2024-01-01' min='2024-01-01' max='2030-12-31'></input>
+                                      </div>
+                                    
+                                      <div class='form-group'>
+                                        <label for='fecha_egreso' class='control-label col-xs-2'>Fecha Egreso</label>
+                                          <input name='fecha_in' id='fecha_egreso' type='date'  class='form-control' name='trip-start' value='2024-11-28' min='2024-01-01' max='2030-12-31'></input>
+                                      </div>
+                                     <br>
+                                      <div class='form-group'>
+                                        <center><button type='submit' name='insert' class='btn btn-primary'>Save</span></button> </center>
+                                      </div>
+
+
+                                  </div>
+                                </div>
+                                  ";
+
                                 require_once "./C_ExamenesUsuarios.php"; //OBTENER DATO EXAMENES POR USUARIO
                                   foreach ($item as $examen) {
                                     if($usuario['usuario_id'] == $examen['usuario_id'])
@@ -182,7 +226,7 @@
                                                 </div>
                                               </div>
                                         <!------- MODAL PARA ACTUALIZAR FECHAS DEL EXAMEN ------------------------------------------------------------------------------------>
-                                          <div class='offcanvas offcanvas-end' tabindex='-1' id='modal-$examen[exa_id]-$examen[nombre_exa]-$examen[fecha_emision]-$examen[fecha_vencimi]'>
+                                          <div class='offcanvas offcanvas-end' data-bs-backdrop='static' tabindex='-1' id='modal-$examen[exa_id]-$examen[nombre_exa]-$examen[fecha_emision]-$examen[fecha_vencimi]' aria-labelledby='staticBackdropLabel'>
                                                 <div class='offcanvas-header'>
                                                   <h5> $usuario[nombre] $usuario[apellido] </h5>
                                                   <button type='button' class='btn-close text-reset' data-bs-dismiss='offcanvas' aria-label='Close'></button>
