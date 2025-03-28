@@ -167,21 +167,18 @@
                                                     
                            foreach($user as $usuario)
                            {
-                            $user_id=$usuario['usuario_id'];
-
+                            
                             echo "<div class='card m-2 p-0 flex' style='width: 11.1rem;'>";
                             echo "<div class='card-body p-2'>" ;       
-                            echo "<h6 class='card-title'><a style='text-decoration-line: none' data-bs-toggle='offcanvas' href='#updateuser'><h5>$usuario[nombre] $usuario[apellido]</h5></a></h6>";
+                            echo "<h6 class='card-title'><a style='text-decoration-line: none' data-bs-toggle='offcanvas' href='#updateuser-$usuario[usuario_id]'><h5>$usuario[nombre] $usuario[apellido]</h5></a></h6>";
                             
                             echo "
-
-                            <div class='offcanvas offcanvas-end' data-bs-backdrop='static' tabindex='-1' id='updateuser' aria-labelledby='offcanvasLabel' aria-labelledby='staticBackdropLabel'>
+                            <div class='offcanvas offcanvas-end' data-bs-backdrop='static' tabindex='-1' id='updateuser-$usuario[usuario_id]' aria-labelledby='offcanvasLabel' aria-labelledby='staticBackdropLabel'>
                               <div class='offcanvas-header'>
                                 <h5 class='offcanvas-title' id='offcanvasLabel'>Datos del empleado</h5>
                                 <button type='button' class='btn-close' data-bs-dismiss='offcanvas' aria-label='Close'></button>
                               </div>
                               <div class='offcanvas-body'>
-                            
                                     <form class='role' method='POST'>
                                       <div class='form-group'>
                                         <label for='nombre' class='control-label col-xs-1'> Nombre </label>
@@ -189,27 +186,25 @@
                                       </div>
                                       <div class='form-group' >
                                         <label for='apellido' class='control-label col-xs-1'>Apellido</label>
-                                        <input name='apellido' id='apellido' type='text' class='form-control' required></input>
+                                        <input name='apellido' id='apellido' type='text' class='form-control' value='$usuario[apellido]' required></input>
                                       </div>
                                       <div class='form-group'>
                                         <label for='rut' class='control-label col-xs-1'> RUT </label>
-                                      <input name='rut' id='rut' type='text' class='form-control' required></input>
+                                      <input name='rut' id='rut' type='text' class='form-control' value='$usuario[rut]' required></input>
                                       </div>
                                       <div class='form-group'>
                                         <label for='fecha_ingreso' class='control-label col-xs-3'>Fecha Ingreso</label>
-                                          <input name='fecha_in' id='fecha_ingreso' type='date'  class='form-control' name='trip-start' value='2024-01-01' min='2024-01-01' max='2030-12-31'></input>
+                                          <input name='fecha_in' id='fecha_ingreso' type='date'  class='form-control' name='trip-start' value='$usuario[fecha_ingreso]' min='2024-01-01' max='2030-12-31'></input>
                                       </div>
                                     
                                       <div class='form-group'>
                                         <label for='fecha_egreso' class='control-label col-xs-2'>Fecha Egreso</label>
-                                          <input name='fecha_in' id='fecha_egreso' type='date'  class='form-control' name='trip-start' value='2024-11-28' min='2024-01-01' max='2030-12-31'></input>
+                                          <input name='fecha_in' id='fecha_egreso' type='date'  class='form-control' name='trip-start' value='$usuario[fecha_egreso]' min='2024-01-01' max='2030-12-31'></input>
                                       </div>
                                      <br>
                                       <div class='form-group'>
                                         <center><button type='submit' name='insert' class='btn btn-primary'>Save</span></button> </center>
                                       </div>
-
-
                                   </div>
                                 </div>
                                   ";
