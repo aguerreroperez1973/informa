@@ -87,6 +87,17 @@
 											
 					}//fin updateFecha
 
+					///////////////////  ACTUALIZAR DATOS DEL EMPLEADOS /////////////////////////////////////////////////////////////////////	
+						
+					public function updateUsuario($usuario_id, $nombre, $apellido, $email, $rut, $fecha_ingreso, $fecha_egreso){
+
+						$update = $this->con->query("UPDATE usuario SET nombre='$nombre', apellido='$apellido', email='$email', rut='$rut', fecha_ingreso='$fecha_ingreso', fecha_egreso='$fecha_egreso' WHERE usuario_id='$usuario_id'") or die($this->con->error.__LINE__);
+							$insert = false;
+							if ($insert === TRUE){return true;} 
+							else {return false; }
+										
+				}//fin updateFecha
+
 					} //fin classConexion	
 
 ?>

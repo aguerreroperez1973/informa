@@ -162,6 +162,7 @@
                                                   </div>"; }  }
 //////////// FIN ACTUALIZAR FECHAS POR EXAMEN Y USUARIO ////////////////////////////
 
+
 //<!------- INI tarjeta empleado ========================================================================================================-->
                           require_once "./C_GetUsuarios.php"; //OBTENER DATOS DEL USUARIO
                                                     
@@ -172,6 +173,7 @@
                             echo "<div class='card-body p-2'>" ;       
                             echo "<h6 class='card-title'><a style='text-decoration-line: none' data-bs-toggle='offcanvas' href='#updateuser-$usuario[usuario_id]'><h5>$usuario[nombre] $usuario[apellido]</h5></a></h6>";
                             
+  //<!------- INI OFFCAMVAS/FORMULARIO MODIFICAR EMPLEADO =========================================================================================================--> 
                             echo "
                             <div class='offcanvas offcanvas-end' data-bs-backdrop='static' tabindex='-1' id='updateuser-$usuario[usuario_id]' aria-labelledby='offcanvasLabel' aria-labelledby='staticBackdropLabel'>
                               <div class='offcanvas-header'>
@@ -179,8 +181,38 @@
                                 <button type='button' class='btn-close' data-bs-dismiss='offcanvas' aria-label='Close'></button>
                               </div>
                               <div class='offcanvas-body'>
-                                    <form class='role' method='POST'>
-                                      <div class='form-group'>
+                                    <form class='role' action='./C_UpdateUsuario.php' method='POST'> ";
+
+                                    
+                                                  if( $message1 == 'userupdate' ){
+                                                       echo" <div class='offcanvas offcanvas-end show' data-bs-backdrop='static' tabindex='-1' id='offcanvas' aria-labelledby='staticBackdropLabel'>
+                                                        <div class='offcanvas-header'>
+                                                          <h5 class='offcanvas-title' id='offcanvasLabel'>Datos del empleado</h5>
+                                                          <a class='btn btn-close' href='./V_main1.php' role='button'></a>
+                                                        </div>
+                                                        <div class='offcanvas-body'>
+                                                              <div class='alert alert-danger m-2'> <center> <span> Error: El usuario NO fué ingresado !!! </span></center></div>
+                                                              <div> <center> <a class='btn btn-primary' href='./V_main1.php' role='button'>Close</a></center></div>         
+                                                        </div>
+                                                      </div>";
+                                                      }
+                                                        else { if( $message1 == 'usernoupdate' ){
+                                                          echo "<div class='offcanvas offcanvas-end show' data-bs-backdrop='static' tabindex='-1' id='offcanvas' aria-labelledby='offcanvasLabel'>
+                                                              <div class='offcanvas-header'>
+                                                                <h5 class='offcanvas-title' id='offcanvasLabel'>Datos del empleado</h5>
+                                                                <a class='btn btn-close' href='./V_main1.php' role='button'></a>
+                                                              </div>
+                                                              <div class='offcanvas-body'>
+                                                                    <div class='alert alert-success m-2'> <center> <span> El usuario fué ingresado con Exito </span></center> </div>
+                                                                    <div> <center> <a class='btn btn-primary' href='./V_main1.php' role='button'>Close</a></center></div>
+                                                              </div>
+                                                          </div> "; } };
+
+
+                                                        
+                                   echo"
+                                   <input id='usuario_id' name='usuario_id' type='hidden' value='$usuario[usuario_id]' />
+                                   <div class='form-group'>
                                         <label for='nombre' class='control-label col-xs-1'> Nombre </label>
                                         <input name='nombre' id='nombre' type='text' class='form-control' value='$usuario[nombre]' required></input>
                                       </div>
@@ -189,26 +221,30 @@
                                         <input name='apellido' id='apellido' type='text' class='form-control' value='$usuario[apellido]' required></input>
                                       </div>
                                       <div class='form-group'>
+                                        <label for='email' class='control-label col-xs-1'> E-mail </label>
+                                      <input name='email' id='email' type='email' class='form-control' value='$usuario[email]' required></input>
+                                      </div>
+                                      <div class='form-group'>
                                         <label for='rut' class='control-label col-xs-1'> RUT </label>
                                       <input name='rut' id='rut' type='text' class='form-control' value='$usuario[rut]' required></input>
                                       </div>
                                       <div class='form-group'>
                                         <label for='fecha_ingreso' class='control-label col-xs-3'>Fecha Ingreso</label>
-                                          <input name='fecha_in' id='fecha_ingreso' type='date'  class='form-control' name='trip-start' value='$usuario[fecha_ingreso]' min='2024-01-01' max='2030-12-31'></input>
+                                          <input name='fecha_ingreso' id='fecha_ingreso' type='date'  class='form-control' name='trip-start' value='$usuario[fecha_ingreso]' min='2024-01-01' max='2030-12-31'></input>
                                       </div>
                                     
                                       <div class='form-group'>
                                         <label for='fecha_egreso' class='control-label col-xs-2'>Fecha Egreso</label>
-                                          <input name='fecha_in' id='fecha_egreso' type='date'  class='form-control' name='trip-start' value='$usuario[fecha_egreso]' min='2024-01-01' max='2030-12-31'></input>
+                                          <input name='fecha_egreso' id='fecha_egreso' type='date'  class='form-control' name='trip-start' value='$usuario[fecha_egreso]' min='2024-01-01' max='2030-12-31'></input>
                                       </div>
                                      <br>
                                       <div class='form-group'>
-                                        <center><button type='submit' name='insert' class='btn btn-primary'>Save</span></button> </center>
+                                        <center><button type='submit' name='updateuser' class='btn btn-primary'>Save</span></button> </center>
                                       </div>
                                   </div>
                                 </div>
                                   ";
-
+//<!------- FIN OFFCAMVAS/FORMULARIO MODIFICAR EMPLEADO =========================================================================================================-->
                                 require_once "./C_ExamenesUsuarios.php"; //OBTENER DATO EXAMENES POR USUARIO
                                   foreach ($item as $examen) {
                                     if($usuario['usuario_id'] == $examen['usuario_id'])
